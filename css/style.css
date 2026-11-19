@@ -348,7 +348,7 @@ section { padding: 58px 0; }
 /* ---------- Projekty – kafelki ---------- */
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 26px;
 }
 .project-card {
@@ -369,7 +369,7 @@ section { padding: 58px 0; }
 }
 .project-card img {
   width: 100%;
-  height: 190px;
+  height: 220px;
   object-fit: cover;
   object-position: top;
   background: var(--light);
@@ -411,7 +411,7 @@ section { padding: 58px 0; }
 .page-header {
   background: var(--dark);
   color: var(--light);
-  padding: 48px 0;
+  padding: 34px 0;
   position: relative;
   overflow: hidden;
 }
@@ -420,21 +420,26 @@ section { padding: 58px 0; }
   position: absolute;
   right: 0;
   top: 0;
-  width: 160px;
-  height: 190px;
+  width: 120px;
+  height: 142px;
   background: url("../img/circuit.svg") no-repeat center / contain;
   transform: scaleX(-1);
   opacity: 0.6;
 }
-.page-header h1 {
-  color: var(--white);
-  font-size: clamp(1.8rem, 4vw, 2.5rem);
-  border-left: 4px solid var(--neon);
-  padding-left: 20px;
+/* Błękitna linia od tytułu do podtytułu, ok. 10% dłuższa niż tekst */
+.page-title {
+  display: inline-block;
+  border-left: 3px solid var(--neon);
+  padding: 0.3em 0 0.3em 18px;
   position: relative;
   z-index: 1;
 }
-.page-header p { margin: 0; padding-left: 24px; color: var(--pink); position: relative; z-index: 1; }
+.page-header h1 {
+  color: var(--white);
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  margin: 0 0 0.3em;
+}
+.page-header p { margin: 0; color: var(--pink); font-size: 0.9rem; }
 
 /* ---------- Strona projektu ---------- */
 .summary {
@@ -530,5 +535,6 @@ section { padding: 58px 0; }
 
 /* ---------- Tablet i telefon: kafelki jeden pod drugim ---------- */
 @media (max-width: 900px) {
-  .skills-grid, .highlights { grid-template-columns: 1fr; }
+  .skills-grid, .highlights, .project-grid { grid-template-columns: 1fr; }
 }
+.project-body ul.tags { padding-left: 0; }
