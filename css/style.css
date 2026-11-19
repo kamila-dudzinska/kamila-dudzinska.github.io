@@ -1,0 +1,517 @@
+/* ==========================================================
+   Style strony portfolio – Kamila Dudzińska
+   Kolory odczytane z banera z LinkedIna
+   ========================================================== */
+
+:root {
+  --dark: #1F2937;        /* ciemne tło (hero, nagłówek, stopka) i tekst */
+  --light: #F4F4F5;       /* jasny tekst na ciemnym tle / jasne tło */
+  --white: #FFFFFF;
+  --pink: #FF69B4;        /* różowy – znak rozpoznawczy */
+  --neon: #57DFFD;        /* neonowy błękit – linie, ikonki */
+  --blue: #48B0C8;        /* spokojny błękit – linki, tagi */
+  --plum: #703F6A;        /* ciemna śliwka – dekoracje */
+  --muted: #5B6472;       /* drugorzędny tekst */
+  --line: #E4E4E7;        /* delikatne obramowania */
+  --radius: 10px;
+  --max: 1080px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "Lato", Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--dark);
+  background: var(--white);
+}
+
+h1, h2, h3 {
+  font-family: "Montserrat", Arial, sans-serif;
+  line-height: 1.2;
+  margin: 0 0 0.6em;
+}
+
+/* Nagłówki sekcji wielkimi literami – jak w CV */
+h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+h2::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 4px;
+  margin-top: 10px;
+  background: var(--pink);
+  border-radius: 2px;
+}
+
+a { color: var(--blue); }
+a:hover { color: var(--plum); }
+
+img { max-width: 100%; }
+
+.container {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+section { padding: 72px 0; }
+.section-alt { background: var(--light); }
+
+/* ---------- Pasek nawigacji ---------- */
+.nav {
+  background: var(--dark);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid rgba(87, 223, 253, 0.15);
+}
+.nav .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+}
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--light);
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.nav-brand:hover { color: var(--white); }
+.diamond {
+  width: 12px;
+  height: 12px;
+  background: var(--pink);
+  transform: rotate(45deg);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.nav-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-links a {
+  color: var(--light);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+.nav-links a:hover,
+.nav-links a[aria-current="page"] { color: var(--neon); }
+
+/* ---------- Hero – w stylu banera ---------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--dark);
+  color: var(--light);
+  padding: 96px 0 104px;
+}
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 240px;
+  height: 284px;
+  background: url("../img/circuit.svg") no-repeat center / contain;
+  opacity: 0.9;
+  pointer-events: none;
+}
+.hero::before { left: 0; top: 0; }
+.hero::after { right: 0; bottom: 0; transform: rotate(180deg); }
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 56px;
+}
+
+/* Okrągłe zdjęcie z białą obwódką; dopóki nie ma img/zdjecie.jpg – inicjały KD */
+.photo {
+  position: relative;
+  width: 190px;
+  height: 190px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 5px solid var(--white);
+  background: var(--plum);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  font-size: 3.4rem;
+  color: var(--white);
+  letter-spacing: 0.04em;
+}
+.photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-text {
+  border-left: 4px solid var(--neon);
+  padding-left: 28px;
+}
+.hero h1 {
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 0.25em;
+}
+.hero-subtitle {
+  color: var(--pink);
+  font-size: 1.35rem;
+  margin: 0 0 0.4em;
+}
+.hero-tools {
+  font-weight: 700;
+  margin: 0 0 1.6em;
+  letter-spacing: 0.03em;
+}
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+/* ---------- Przyciski ---------- */
+.btn {
+  display: inline-block;
+  padding: 12px 26px;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.15s, background 0.15s;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn-primary { background: var(--pink); color: var(--dark); }
+.btn-primary:hover { background: #ff85c2; color: var(--dark); }
+.btn-outline {
+  border: 2px solid var(--neon);
+  color: var(--light);
+}
+.btn-outline:hover { background: rgba(87, 223, 253, 0.12); color: var(--white); }
+.btn-dark { background: var(--dark); color: var(--white); }
+.btn-dark:hover { background: #2d3a4d; color: var(--white); }
+
+/* ---------- O mnie ---------- */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+.about-text p { margin: 0 0 1em; }
+
+.beyond {
+  background: var(--dark);
+  color: var(--light);
+  border-radius: var(--radius);
+  padding: 28px;
+}
+.beyond h3 {
+  color: var(--white);
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.beyond ul { list-style: none; margin: 0; padding: 0; }
+.beyond li {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 14px;
+  align-items: flex-start;
+}
+.beyond svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  margin-top: 3px;
+  stroke: var(--neon);
+}
+
+/* ---------- Umiejętności ---------- */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+.skill-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--blue);
+  border-radius: var(--radius);
+  padding: 22px 24px;
+}
+.skill-card h3 { font-size: 1.05rem; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.tag {
+  background: rgba(72, 176, 200, 0.12);
+  color: #1f6f82;
+  border-radius: 999px;
+  padding: 3px 12px;
+  font-size: 0.88rem;
+}
+
+/* ---------- Doświadczenie ---------- */
+.highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin-bottom: 56px;
+}
+.highlight {
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--pink);
+  border-radius: var(--radius);
+  padding: 26px 28px;
+  background: var(--white);
+}
+.highlight-number {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  font-size: 2.6rem;
+  color: var(--dark);
+  line-height: 1;
+}
+.highlight-label {
+  color: var(--muted);
+  font-size: 0.92rem;
+  margin: 4px 0 14px;
+}
+.highlight h3 { font-size: 1.15rem; margin-bottom: 0.2em; }
+.highlight .company { color: var(--blue); font-weight: 700; font-size: 0.92rem; margin: 0 0 10px; }
+.highlight p { margin: 0; }
+
+.timeline { list-style: none; margin: 0; padding: 0; position: relative; }
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 6px;
+  bottom: 6px;
+  width: 2px;
+  background: var(--neon);
+}
+.timeline li {
+  position: relative;
+  padding: 0 0 26px 36px;
+}
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 6px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 3px solid var(--blue);
+}
+.timeline .years { font-weight: 700; color: var(--blue); font-size: 0.92rem; }
+.timeline .role { font-family: "Montserrat", sans-serif; font-weight: 700; }
+.timeline .desc { color: var(--muted); margin: 2px 0 0; }
+.education { margin-top: 12px; }
+
+.cta { text-align: center; padding-top: 0; }
+
+/* ---------- Projekty – kafelki ---------- */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 26px;
+}
+.project-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--white);
+  color: var(--dark);
+  text-decoration: none;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(31, 41, 55, 0.12);
+  color: var(--dark);
+}
+.project-card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  object-position: top;
+  background: var(--light);
+  border-bottom: 1px solid var(--line);
+}
+.project-card .body { padding: 20px 22px 24px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+.project-card h3 { font-size: 1.15rem; margin: 0; }
+.project-card p { margin: 0; color: var(--muted); }
+.badge {
+  align-self: flex-start;
+  background: var(--pink);
+  color: var(--dark);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 2px 10px;
+  border-radius: 999px;
+}
+.more-projects { margin-top: 56px; }
+.small-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+.small-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  text-decoration: none;
+  color: var(--dark);
+  background: var(--white);
+}
+.small-card:hover { border-color: var(--blue); color: var(--dark); }
+.small-card strong { font-family: "Montserrat", sans-serif; }
+.small-card p { margin: 4px 0 0; color: var(--muted); font-size: 0.95rem; }
+
+/* ---------- Nagłówek podstron ---------- */
+.page-header {
+  background: var(--dark);
+  color: var(--light);
+  padding: 48px 0;
+  position: relative;
+  overflow: hidden;
+}
+.page-header::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 160px;
+  height: 190px;
+  background: url("../img/circuit.svg") no-repeat center / contain;
+  transform: scaleX(-1);
+  opacity: 0.6;
+}
+.page-header h1 {
+  color: var(--white);
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  border-left: 4px solid var(--neon);
+  padding-left: 20px;
+  position: relative;
+  z-index: 1;
+}
+.page-header p { margin: 0; padding-left: 24px; color: var(--pink); position: relative; z-index: 1; }
+
+/* ---------- Strona projektu ---------- */
+.summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+  margin-bottom: 40px;
+}
+.summary div {
+  background: var(--light);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  border-top: 4px solid var(--blue);
+}
+.summary div:last-child { border-top-color: var(--pink); }
+.summary h3 { font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.06em; }
+.summary p { margin: 0; }
+.shot {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  display: block;
+  margin: 0 auto 40px;
+}
+.project-body h2 { margin-top: 48px; }
+.project-body ul { padding-left: 1.2em; }
+.project-body li { margin-bottom: 6px; }
+.lessons {
+  background: var(--light);
+  border-left: 5px solid var(--neon);
+  border-radius: var(--radius);
+  padding: 22px 26px;
+  margin-top: 48px;
+}
+.project-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 40px; }
+.btn-ghost { border: 2px solid var(--dark); color: var(--dark); }
+.btn-ghost:hover { background: var(--light); color: var(--dark); }
+
+/* ---------- Stopka / kontakt ---------- */
+.footer {
+  background: var(--dark);
+  color: var(--light);
+  padding: 56px 0 32px;
+}
+.footer h2 { color: var(--white); }
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 32px;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px;
+}
+.contact-links a {
+  color: var(--light);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.contact-links a:hover { color: var(--neon); }
+.contact-links svg { width: 22px; height: 22px; stroke: var(--neon); flex-shrink: 0; }
+.copyright { color: #9CA3AF; font-size: 0.85rem; margin: 0; }
+
+/* ---------- Telefon ---------- */
+@media (max-width: 760px) {
+  body { font-size: 16px; }
+  section { padding: 52px 0; }
+  .nav-links { gap: 16px; }
+  .nav-brand span.full { display: none; }
+  .hero { padding: 64px 0 72px; }
+  .hero::before, .hero::after { width: 130px; height: 154px; opacity: 0.45; }
+  .hero-inner { flex-direction: column; gap: 32px; text-align: left; }
+  .photo { width: 150px; height: 150px; font-size: 2.6rem; }
+  .about-grid { grid-template-columns: 1fr; gap: 32px; }
+  .page-header::after { display: none; }
+}
+
+/* ---------- Dodatki: strona projektu ---------- */
+.project-tags { margin-bottom: 28px; }
+.project-body figure { margin: 0 0 32px; }
+.project-body figure .shot { margin-bottom: 8px; }
+.project-body figcaption { text-align: center; color: var(--muted); font-size: 0.9rem; }
+.project-body ol { padding-left: 1.3em; }
+.project-body ol li { margin-bottom: 8px; }
+.lessons h3 { text-transform: uppercase; letter-spacing: 0.06em; font-size: 1rem; }
+.lessons ul { margin: 0; }

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SAP Ariba Mock Data Generator – Kamila Dudzińska</title>
+  <meta name="description" content="Realistic, GDPR-safe Purchase Order data in the SAP Ariba standard – for practising procurement analytics.">
+  <link rel="icon" href="../img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <!-- ===== Pasek nawigacji ===== -->
+  <nav class="nav">
+    <div class="container">
+      <a class="nav-brand" href="../index.html"><span class="diamond"></span><span class="full">Kamila Dudzińska</span></a>
+      <ul class="nav-links">
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../projects.html" aria-current="page">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="container">
+      <h1>SAP Ariba Mock Data Generator</h1>
+      <p>Realistic, GDPR-safe Purchase Order data in the SAP Ariba standard – for practising procurement analytics.</p>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="container project-body">
+        <ul class="tags project-tags">
+            <li class="tag">Python</li>
+            <li class="tag">pandas</li>
+            <li class="tag">tkinter</li>
+            <li class="tag">pytest</li>
+            <li class="tag">Docker</li>
+        </ul>
+
+        <!-- Podsumowanie: problem → rozwiązanie → efekt -->
+        <div class="summary">
+          <div><h3>Problem</h3><p>Procurement professionals moving into data analytics can’t practise on real corporate data – compliance rules, NDAs and GDPR stand in the way.</p></div>
+          <div><h3>Solution</h3><p>A Python tool that generates synthetic, production-grade PO datasets mirroring the data structure and business logic of SAP Ariba – with a GUI, a Windows .exe and an .msi installer.</p></div>
+          <div><h3>Result</h3><p>Up to 50,000 rows in less than a minute: a 100% compliant, realistic test environment ready for Power BI, Python, SQL or Excel.</p></div>
+        </div>
+
+        <img class="shot" src="../img/projects/sap-ariba/gui_g.gif" alt="Generator GUI in action">
+
+          <h2>Key features</h2>
+          <ul>
+            <li>Realistic procurement data – POs, suppliers, users, companies and delivery windows that mimic SAP Ariba patterns</li>
+            <li>Business-driven logic – lead times, approval flows, delivery dates, spend categories and supplier behaviour</li>
+            <li>Regex-based validation of every generated field</li>
+            <li>Excel output with 2 sheets – Ariba (purchase orders) and Invoices; realistic invoices that are never dated in the future</li>
+            <li>Dynamic date range chosen in the GUI (up to 5 years back), 100 – 50,000 records</li>
+            <li>GDPR-safe – no personal data, test e-mails use the reserved @example.com domain</li>
+            <li>Reproducible script (seed 42), unit tests with pytest and a Dockerfile</li>
+          </ul>
+
+          <h2>Executable &amp; MSI installer</h2>
+          <p>The project grew from a Python script into a deployable Windows application: a stand-alone .exe built with PyInstaller and an .msi installer created with WiX Toolset. Anyone – including non-technical users – can install and run it without Python. <a href="https://github.com/kamila-dudzinska/SAP-Ariba-Mock-Data-Generator-for-Procurement-Analytics/releases/tag/v1.1.0" target="_blank" rel="noopener">Download the installer (v1.1.0)</a>.</p>
+
+          <h2>Why Python instead of AI?</h2>
+          <ul>
+            <li>The script is faster – a mock dataset with 50,000 rows takes less than a minute.</li>
+            <li>It’s easy to change what I need – the number of rows, users, start date, delivery date and more.</li>
+            <li>I do my projects from A to Z – AI helped me with company and user names, the rest is my own work. I prefer to understand the logic, so it can be repeated in another environment.</li>
+          </ul>
+
+          <h2>Screenshots</h2>
+          <figure><img class="shot" src="../img/projects/sap-ariba/mock3.png" alt="Generated output" loading="lazy"><figcaption>Generated output</figcaption></figure>
+          <figure><img class="shot" src="../img/projects/sap-ariba/mock1.png" alt="Code fragment" loading="lazy"><figcaption>Code fragment</figcaption></figure>
+
+          <!-- Wnioski – przeniesione z README projektu -->
+          <div class="lessons">
+            <h3>Debugging &amp; lessons learned</h3>
+            <ul>
+            <li>The initial “Failed to load Python DLL” error was caused by PyInstaller’s onedir mode.</li>
+            <li>Switching to onefile resolved all dependency issues.</li>
+            <li>WiX Toolset requires a strict two-step build (candle → light) executed in the same directory as the .wxs file.</li>
+            <li>The final packaging pipeline is stable, reproducible and easy to maintain for future releases.</li>
+          </ul>
+          </div>
+
+        <div class="project-actions">
+          <a class="btn btn-dark" href="https://github.com/kamila-dudzinska/SAP-Ariba-Mock-Data-Generator-for-Procurement-Analytics" target="_blank" rel="noopener">View code on GitHub</a>
+          <a class="btn btn-ghost" href="../projects.html">← Back to projects</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  <!-- ===== Stopka / kontakt ===== -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <h2>Contact</h2>
+      <ul class="contact-links">
+        <li><a href="mailto:kamila.dudzinska@onet.pl">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+          kamila.dudzinska@onet.pl</a></li>
+        <li><a href="https://www.linkedin.com/in/kamila-dudzi%C5%84ska-856bb31b8/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn</a></li>
+        <li><a href="https://github.com/kamila-dudzinska" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 0 0-.9-2.6c3.1-.4 6.4-1.5 6.4-7a5.4 5.4 0 0 0-1.5-3.8 5 5 0 0 0-.1-3.8s-1.2-.4-3.9 1.5a13.4 13.4 0 0 0-7 0C6.3 1.6 5.1 2 5.1 2a5 5 0 0 0-.1 3.8A5.4 5.4 0 0 0 3.5 9.6c0 5.4 3.3 6.6 6.4 7a3.4 3.4 0 0 0-.9 2.6V23"/></svg>
+          GitHub</a></li>
+      </ul>
+      <p class="copyright">© 2026 Kamila Dudzińska</p>
+    </div>
+  </footer>
+
+</body>
+</html>
