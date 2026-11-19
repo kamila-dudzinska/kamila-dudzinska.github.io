@@ -632,3 +632,21 @@ main h2::after { width: 120%; margin-left: -10%; }
   .home main { zoom: 0.85; }
   .home main .container { max-width: calc(var(--max) / 0.85); }  /* ta sama szerokość co nawigacja */
 }
+
+/* Marginesy boczne mniejsze o ok. 5% szerokości ekranu z każdej strony */
+:root { --max: 1240px; }
+
+/* Stopka (Contact): kolor banera + ozdobniki z banera po prawej */
+.footer { position: relative; overflow: hidden; }
+.footer .container { position: relative; z-index: 1; }
+.footer::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 36%;
+  background: url("../img/deco-right.png") no-repeat right center / auto 100%;
+  pointer-events: none;
+}
+@media (max-width: 760px) { .footer::after { opacity: 0.35; } }
