@@ -557,3 +557,4 @@ body { background: var(--page); }
 .summary div:last-child { border-top-color: var(--pink); }
 .highlight { border-left-color: var(--pink); }
 .lessons { border-left-color: var(--neon); }
+.tags-stack { flex-direction: column; align-items: flex-start; }
