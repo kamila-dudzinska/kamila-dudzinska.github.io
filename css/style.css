@@ -538,3 +538,22 @@ section { padding: 58px 0; }
   .skills-grid, .highlights, .project-grid { grid-template-columns: 1fr; }
 }
 .project-body ul.tags { padding-left: 0; }
+
+/* ==========================================================
+   Tło: wersja A – chłodna jasna szarość, białe kafelki z cieniem
+   ========================================================== */
+:root { --page: #F1F4F8; --page-alt: #E8EDF3; --line: #DDE3EA; }
+body { background: var(--page); }
+.section-alt { background: var(--page-alt); }
+.skill-card, .highlight, .project-card, .small-card,
+.summary div, .lessons {
+  background: var(--white);
+  border-color: var(--line);
+  box-shadow: 0 2px 8px rgba(31, 41, 55, 0.06);
+}
+.timeline li::before { background: var(--page); }
+/* Akcenty kolorystyczne kafelków (po zmianie tła) */
+.skill-card, .summary div { border-top-color: var(--blue); }
+.summary div:last-child { border-top-color: var(--pink); }
+.highlight { border-left-color: var(--pink); }
+.lessons { border-left-color: var(--neon); }
