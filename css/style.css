@@ -622,3 +622,13 @@ main h2::after { width: 120%; margin-left: -10%; }
   .hero::before { background-size: auto 200px; background-position: left top; opacity: 0.5; }
   .hero::after { background-size: auto 200px; background-position: right bottom; opacity: 0.5; }
 }
+
+/* Trzecia linia w banerze: obszary pracy (błękit jak na LinkedIn) */
+.hero-focus { color: #7FD3E6; font-size: 0.8rem; margin: -0.8em 0 1.2em; letter-spacing: 0.02em; }
+
+/* Strona główna: wszystkie sekcje treści pomniejszone o 15% */
+/* (tylko komputer – na telefonie tekst zostaje w pełnym rozmiarze dla czytelności) */
+@media (min-width: 761px) {
+  .home main { zoom: 0.85; }
+  .home main .container { max-width: calc(var(--max) / 0.85); }  /* ta sama szerokość co nawigacja */
+}
