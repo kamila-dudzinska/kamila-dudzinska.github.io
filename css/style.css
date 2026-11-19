@@ -634,7 +634,7 @@ main h2::after { width: 120%; margin-left: -10%; }
 }
 
 /* Marginesy boczne mniejsze o ok. 5% szerokości ekranu z każdej strony */
-:root { --max: 1240px; }
+:root { --max: 1060px; }
 
 /* Stopka (Contact): kolor banera + ozdobniki z banera po prawej */
 .footer { position: relative; overflow: hidden; }
