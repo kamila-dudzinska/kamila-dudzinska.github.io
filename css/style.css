@@ -564,3 +564,23 @@ body { background: var(--page); }
 @media (min-width: 761px) {
   .hero-inner { justify-content: flex-start; padding-left: 17%; }
 }
+
+/* ==========================================================
+   Wersja ciepła: tło #FBF7F0 + przygaszony baner (jak na LinkedIn)
+   ========================================================== */
+:root {
+  --page: #FBF7F0;        /* tło strony */
+  --page-alt: #F4EEE4;    /* tło sekcji Skills */
+  --line: #E9E2D6;        /* obramowania kafelków */
+  --banner: #374151;      /* przygaszony grafit – baner, nawigacja, stopka */
+  --pink-on-dark: #FF8CC6;/* jaśniejszy róż do tekstu na ciemnym tle (czytelność) */
+}
+.nav, .hero, .page-header, .footer, .beyond { background: var(--banner); }
+.hero-subtitle, .page-header p { color: var(--pink-on-dark); }
+.skill-card, .highlight, .project-card, .small-card, .summary div, .lessons {
+  box-shadow: 0 2px 8px rgba(80, 60, 30, 0.06);
+}
+
+/* Różowe podkreślenie nagłówków: od początku do końca słowa + 10% z każdej strony */
+main h2 { display: table; }
+main h2::after { width: 120%; margin-left: -10%; }
