@@ -558,3 +558,9 @@ body { background: var(--page); }
 .highlight { border-left-color: var(--pink); }
 .lessons { border-left-color: var(--neon); }
 .tags-stack { flex-direction: column; align-items: flex-start; }
+
+/* ---------- Hero: większe zdjęcie, całość przesunięta w lewo ---------- */
+.photo { width: 160px; height: 160px; font-size: 2.9rem; }
+@media (min-width: 761px) {
+  .hero-inner { justify-content: flex-start; padding-left: 17%; }
+}
