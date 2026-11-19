@@ -584,3 +584,41 @@ body { background: var(--page); }
 /* Różowe podkreślenie nagłówków: od początku do końca słowa + 10% z każdej strony */
 main h2 { display: table; }
 main h2::after { width: 120%; margin-left: -10%; }
+
+/* ==========================================================
+   Ozdobniki z banera LinkedIn (obwody + figury geometryczne)
+   img/deco-left.png i img/deco-right.png – przezroczyste tło
+   ========================================================== */
+.hero::before, .hero::after,
+.page-header::before, .page-header::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  transform: none;
+  opacity: 1;
+  pointer-events: none;
+  display: block;
+}
+.hero::before, .page-header::before {
+  left: 0;
+  width: 36%;
+  background: url("../img/deco-left.png") no-repeat left center / auto 100%;
+}
+.hero::after, .page-header::after {
+  right: 0;
+  left: auto;
+  width: 36%;
+  background: url("../img/deco-right.png") no-repeat right center / auto 100%;
+}
+.page-header .container { position: relative; z-index: 1; }
+
+@media (max-width: 760px) {
+  .hero::before, .hero::after { width: 40%; height: 100%; opacity: 0.35; }
+  .page-header::before, .page-header::after { display: block; opacity: 0.35; }
+}
+@media (max-width: 760px) {
+  .hero::before { background-size: auto 200px; background-position: left top; opacity: 0.5; }
+  .hero::after { background-size: auto 200px; background-position: right bottom; opacity: 0.5; }
+}
